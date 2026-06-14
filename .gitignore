@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+
+# Build outputs
+*.o
+*.out
+*.exe
+*.a
+*.so
+*.dylib
+
+# Debug/temporary files
+*.dSYM/
+*.log
+*.tmp
+*.swp
