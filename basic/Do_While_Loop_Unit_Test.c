@@ -2,10 +2,12 @@
 #include <stdio.h>
 
 void test(int start, int end) {
-  printf("Printing from %d to %d:\n", start, end);
+  printf("print_numbers_reverse(start=%d, end=%d):\n", start, end);
   print_numbers_reverse(start, end);
-  print_numbers_reverses(start, end);
   printf("======================\n");
 }
 
-int main() { test(20, 4); }
+int main() {
+  test(5, 1);
+  test(1, 5);
+}
