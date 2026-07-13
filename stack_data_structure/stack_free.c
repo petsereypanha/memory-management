@@ -1,12 +1,23 @@
-#include "stack_pop.h"
+#include "snekstack.h"
 #include <assert.h>
 #include <stddef.h>
 #include <stdlib.h>
 
+void stack_free(stack_t *stack) {
+  if (stack == NULL){
+    return;
+  }
+  if (stack->data != NULL) {
+    free(stack->data);
+  }
+  free(stack);
+}
+
 void *stack_pop(stack_t *stack) {
-  if(stack->count == NULL){
+  if (stack->count == 0) {
     return NULL;
   }
+
   stack->count--;
   return stack->data[stack->count];
 }
@@ -17,7 +28,6 @@ void stack_push(stack_t *stack, void *obj) {
     void **temp = realloc(stack->data, stack->capacity * sizeof(void *));
     if (temp == NULL) {
       stack->capacity /= 2;
-
       exit(1);
     }
     stack->data = temp;
